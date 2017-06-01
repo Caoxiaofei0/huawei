@@ -4,7 +4,16 @@
 		<meta charset="utf-8" />
 		<title></title>
 		<link href="css/public.css" rel="stylesheet" type="text/css">
-        <link href="css/dommon.css" rel="stylesheet" type="text/css">
+        
+        <link href="css/lianxi.css" rel="stylesheet" type="text/css">
+        
+        <!--
+        	<link href="css/dommon.css" rel="stylesheet" type="text/css">
+        	作者：offline
+        	时间：2017-06-01
+        	描述：
+        	
+        -->
 	</head>
 	<body>
 		<div id="top">
@@ -40,8 +49,11 @@
 				</ul>			
 				<dl class="top-r">
 					<dt>
-						<a href="#">手机版</a>
-						<div></div>
+						<a class="a2"  href="#">手机版</a>
+						<ul>
+							<li class="clear"><img src="img/qrcode_vmall_new_app01.png"><b><h3>手机版</h3><a href="#">专享无线特惠</a></b></li>
+							<li class="clear"><img src="img/qrcode_vmall_new_wechat01.png"><b><h3>微信公众号</h3><a href="#">微信扫码关注我们</a></b></li>
+						</ul>
 					</dt>					
 					<dd>
 						<a class="a1" href="#">更多精彩</a>
@@ -96,7 +108,216 @@
 			</div>				
 		</nav>
 		<div id="banner">
-			<ul>
+			<div id="slideshow">								
+			</div>
+			<script type="text/javascript" src="js/tools.js"></script>
+		<script type="text/javascript">
+		
+		"use strict";
+		
+		//对象：轮播图
+		//参数是个对象：面向对象的体现（一切皆对象）；
+		function Slideshow(obj){
+		//属性：
+			//一、轮播图整体的属性
+			//所在容器的id；
+			this.boxId=obj.boxId;	
+			//图片数组
+			this.imgs=obj.imgs;//图片数组中保存着每张图片的路径
+			//大小
+			this.width =obj.width;
+			this.height =obj.height;
+			//播放速度
+			this.timeSpace=obj.timeSpace;//3000;
+			//淡入和淡出图片序号；
+			this.currInOrd =1;
+			this.currOutOrd =0;
+			//大定时器（）
+			this.timer =null;
+			
+			//二、两张图片的切换效果（淡入淡出效果）的属性
+			//淡入淡出效果的时间长度
+			this.fadeInOutTime =obj.fadeInOutTime;//2000
+			//当前透明度
+			this.currOpacity =1;
+			//透明度增量
+			this.opacityInc =0.05;
+			//淡入淡出效果
+			this.fadeInOutTimer =null;
+			
+			//三、按钮的属性；
+			this.btnColor =obj.btnColor;//原始颜色
+			this.btnHighColor =obj.btnHighColor;//高亮颜色
+			this.btnWidth =obj.btnWidth;//按钮的宽
+			this.btnHeight =obj.btnHeight;
+			this.btnHasOrd =obj.btnHasOrd;//按钮上是否有序号；
+			//还可以扩展：按钮的位置是上右下左等等。
+			
+			this.initUI();
+			this.autoChange();
+		}
+		
+		//方法：
+		Slideshow.prototype.autoChange =function(){
+			var that = this;
+			this.timer = setInterval(function(){
+				that.goStep();
+			},this.timeSpace);
+		}
+		
+		Slideshow.prototype.goStep=function (){
+			//1）、改变淡入和淡出的图片序号（按照顺序进行变换）
+			this.currInOrd++;//1-6   2,3,4,5,6
+			this.currOutOrd=this.currInOrd-1; //1,2,3,4,5	
+			
+			if(this.currInOrd>this.imgs.length){
+				this.currInOrd=1;
+			}
+			if(this.currOutOrd>this.imgs.length){
+				this.currOutOrd=1;
+			}
+		
+			//2）、淡入淡出效果
+			this.fadeInOut();
+		
+			//3）、改变按钮颜色
+			this.changeBtnColor();
+		
+		}
+		
+		//二、点击按钮，跳转到对应的图片。
+		Slideshow.prototype.goImg=function(ord){
+			//1）、改变淡入和淡出的图片序号（点那个是那个）
+			this.currOutOrd = this.currInOrd;
+			this.currInOrd = ord;
+			
+			//2）、淡入淡出效果
+			this.fadeInOut();
+		
+			//3）、改变按钮颜色
+			this.changeBtnColor();
+		}
+			
+		//2）、淡入淡出效果
+		Slideshow.prototype.fadeInOut=function(){
+			//淡入淡出的初始化
+			this.fadeInOutInit();
+			//启动定时器进行淡入淡出效果
+			var that = this;
+			var myTimeSpace = this.fadeInOutTime/(1/this.opacityInc);
+			
+			this.fadeInOutTimer=setInterval(function(){
+				that.fadeInOutStep();
+			},myTimeSpace);	
+			
+		} 
+		
+		//淡入和淡出的初始化；
+		Slideshow.prototype.fadeInOutInit=function(){
+			//1、把透明度重置为1
+			this.currOpacity = 1;
+			
+			//2、让淡入淡出的两张图片进入容器内，让其它的图片远离容器
+			for(var i=0;i<this.imgs.length;i++){
+				$my(this.boxId).children[i].style.left = "-100000px";
+			}
+			
+			$my(this.boxId).children[this.currInOrd-1].style.left = "0px";
+			$my(this.boxId).children[this.currOutOrd-1].style.left = "0px";
+			
+		}
+		
+		Slideshow.prototype.fadeInOutStep=function(){
+			//改变数据
+			this.currOpacity-=this.opacityInc;
+			
+			//边界停止
+			if(this.currOpacity<=0){
+				window.clearInterval(this.fadeInOutTimer);
+			}
+			
+			//改变外观
+			$my(this.boxId).children[this.currInOrd-1].style.opacity = 1-this.currOpacity;
+			$my(this.boxId).children[this.currOutOrd-1].style.opacity = this.currOpacity;
+		}
+		
+		Slideshow.prototype.changeBtnColor= function(){
+			var ul = $my(this.boxId).lastElementChild;
+			for(var i=0;i<this.imgs.length;i++){
+				ul.children[i].style.backgroundColor = this.btnColor;
+			}
+			ul.children[this.currInOrd-1].style.backgroundColor = this.btnHighColor;
+		}
+		
+		//3、鼠标悬停时，变换停止
+		Slideshow.prototype.stopChange=function(){
+			window.clearInterval(this.timer);
+		}
+		
+		//4、鼠标离开，继续自动变换
+		
+		Slideshow.prototype.initUI=function(){
+			//一、创建轮播图所需要的DOM元素
+			//1、所有图片的创建
+			for(var i=0;i<this.imgs.length;i++){
+				var imgObj = $mycreate("img");
+				imgObj.src = this.imgs[i];
+				imgObj.style.cssText = "width:"+this.width+"px;height:"+this.height+"px;position:absolute;z-index:"+(this.imgs.length-i);
+				$my(this.boxId).appendChild(imgObj);
+			}
+			//让前两张以外的其它图片远离容器
+			for(var i=2;i<this.imgs.length;i++){
+				$my(this.boxId).children[i].style.left = "-100000px";
+			}
+			
+			//2、所有按钮的创建
+			var ulObj = $mycreate("ul");
+			ulObj.style.cssText = "position:absolute;left:595px;bottom:26px;z-index:50;display:flex;justify-content:space-between";
+			$my(this.boxId).appendChild(ulObj);
+			
+			for(let i=0;i<this.imgs.length;i++){
+				var liObj = $mycreate("li");
+				liObj.style.cssText = "list-style:none;float:left;margin-right:20px;width:"+this.btnWidth+"px;height:"+this.btnHeight+"px;border:1px solid #fff;border-radius:50%;text-align:center;background-color:"+this.btnColor+";";
+				if(this.btnHasOrd){
+					liObj.innerHTML = "";
+				}
+				var that = this;
+				liObj.onmouseover = function(){
+					that.goImg(i+1);
+				}
+				ulObj.appendChild(liObj);
+			}
+			//让第一个按钮变成高亮颜色；
+			ulObj.children[0].style.backgroundColor = this.btnHighColor;
+			
+			var that = this;
+			$my(this.boxId).onmouseover = function(){
+				that.stopChange();
+			} 
+		
+			$my(this.boxId).onmouseout = function(){
+				that.autoChange();
+			} 	
+		}
+		
+		window.onload = function(){
+			new  Slideshow({
+				boxId:"slideshow",
+				imgs:["img/20170530104947269.jpg","img/20170531225831208.jpg","img/20170601010625393.jpg","img/2017060101122355.jpg","img/20170601090637333.jpg","img/20170601104155194.jpg"],
+				width:1343,
+				height:450,
+				timeSpace:3000,
+				fadeInOutTime:2000,
+				btnColor:"#fff",
+				btnHighColor:"#000",
+				btnWidth:10,
+				btnHeight:10,
+				btnHasOrd:true
+			});
+			
+		}					
+			</script>
+			<ul class="ulId">
 				<li>
 					<h3>
 						<a href="#">手机</a>								
@@ -104,60 +325,284 @@
 					<p>
 						<a href="#">荣耀</a>
 						<a href="#">HUAWEI P 系列</a>
-						<a href="#">&gt;</a>
+						<a class="teA" href="#">&gt;</a>
+					</p>
+					<div class="hideC">
+						<h3><a href="#"><span>浏览手机频道</span><b>&gt;</b></a></h3>
+						<p class="pClass">
+							<a href="#">荣耀</a>
+							<a href="#">HUAWEI P 系列</a>
+							<a href="#">畅玩</a>
+							<a href="#">HUAWEI Mate 系列</a>
+							<a href="#">HUAWEI nova 系列</a>
+							<a href="#">华为G系列</a>
+							<a href="#">华为畅想系列</a>
+							<a href="#">合约机</a>							
+						</p>
+						<ol>
+							<li><a href="#">
+								<img src="img/p10.jpg"/>
+								<h4>HUAWEI P10</h4>
+								<span>￥4288</span></a>
+							</li>
+							<li><a href="#">
+								<img src="img/r8.jpg"/>
+								<h4>荣耀8青春版</h4>
+								<span>￥1099</span></a>
+							</li>
+							<li><a href="#">
+								<img src="img/m9.jpg"/>
+								<h4>HUAWEI Mate 9</h4>
+								<span>￥3599</span></a>
+							</li>
+							<li><a href="#">
+								<img src="img/v9.jpg"/>
+								<h4>荣耀v9</h4>
+								<span>￥2599</span></a>
+							</li>
+						</ol>
+					</div>
+				</li>
+				<li>
+					<h3>
+						<a href="#">笔记本&电脑</a>	
+					</h3>
+					<p>
+						<a href="#">平板电脑</a>
+						<a href="#">笔记本电脑</a>
+						<a class="teA" href="#">&gt;</a>
+					</p>
+					<div class="hideC">
+						<h3><a href="#"><span>浏览笔记本&电脑频道</span><b>&gt;</b></a></h3>
+						<p class="pClass">
+							<a href="#">平板电脑</a>
+							<a href="#">笔记本电脑</a>
+												
+						</p>
+						<ol>
+							<li><a href="#">
+								<img src="img/rp2.jpg"/>
+								<h4>荣耀平板2</h4>
+								<span>￥999</span></a>
+							</li>
+							<li><a href="#">
+								<img src="img/pm3.jpg"/>
+								<h4>华为平板M3</h4>
+								<span>￥1788</span></a>
+							</li>
+							<li><a href="#">
+								<img src="img/rcp2.9.6.jpg"/>
+								<h4 class="teH">荣耀畅玩平板2 9.6英寸（首发）</h4>
+								<span>￥999</span></a>
+							</li>
+							<li><a href="#">
+								<img src="img/hmb.jpg"/>
+								<h4>HUAWEI Mate Book</h4>
+								<span>￥4488</span></a>
+							</li>
+						</ol>
+					</div>
+				</li>
+				<li>
+					<h3>
+						<a href="#">穿戴</a>	
+					</h3>
+					<p>
+						<a href="#">手环</a>
+						<a href="#">手套</a>
+						<a class="teA" href="#">&gt;</a>
 					</p>
 				</li>
 				<li>
 					<h3>
-						<a href="#">手机</a>	
+						<a href="#">智能家居</a>	
 					</h3>
 					<p>
-						<a href="#"></a>
-						<a href="#"></a>
-						<a href="#">&gt;</a>
+						<a href="#">子母路由</a>
+						<a href="#">电视盒子</a>
+						<a href="#">路由器</a>
+						<a class="teA" href="#">&gt;</a>
 					</p>
 				</li>
 				<li>
 					<h3>
-						<a href="#">手机</a>	
+						<a href="#">通用配件</a>	
 					</h3>
 					<p>
-						<a href="#"></a>
-						<a href="#"></a>
-						<a href="#">&gt;</a>
+						<a href="#">移动电源</a>
+						<a href="#">耳机</a>
+						<a href="#">音响</a>
+						<a class="teA" href="#">&gt;</a>
 					</p>
 				</li>
 				<li>
 					<h3>
-						<a href="#">手机</a>	
+						<a href="#">专属配件</a>	
 					</h3>
 					<p>
-						<a href="#"></a>
-						<a href="#"></a>
-						<a href="#">&gt;</a>
-					</p>
-				</li>
-				<li>
-					<h3>
-						<a href="#">手机</a>	
-					</h3>
-					<p>
-						<a href="#"></a>
-						<a href="#"></a>
-						<a href="#">&gt;</a>
-					</p>
-				</li>
-				<li>
-					<h3>
-						<a href="#">手机</a>	
-					</h3>
-					<p>
-						<a href="#"></a>
-						<a href="#"></a>
-						<a href="#">&gt;</a>
+						<a href="#">保护壳</a>
+						<a href="#">保护套</a>
+						<a href="#">贴膜</a>
+						<a class="teA" href="#">&gt;</a>
 					</p>
 				</li>
 			</ul>
+		</div>
+		<div id="serve">
+			<div class="margin clear">
+				<div class="serve-l">
+					<img src="img/img88.jpg" />
+					<div class="serve-l-r">
+						<p>欢迎来到华为商城，请<a href="#">登录</a></p>
+						<p>还没注册？<a href="#">注册</a>即可享受<span>&gt;</span></p>
+						<p><a class="teA1" href="#">新人福利</a><a class="teA1" href="#">特权频道</a></p>
+					</div>
+				</div>
+				<ul class="clear serve-c">
+					<li><a href="#"><img src="img/c4f79817663ba5841dc0884bdc43f5da.png"</a><a href="#">1分钱试用</a></li>
+					<li><a href="#"><img src="img/9c0dc345aaaaa371814a279f4ad9912b.png"</a><a href="#">以旧换新</a></li>
+					<li><a href="#"><img src="img/5c96fea06745f59222e76e4905400137.png"</a><a href="#">手机充值</a></li>
+					<li><a href="#"><img src="img/e2044638fe0e9898de86e7b129ad1d0e.png"</a><a href="#">新人礼包</a></li>
+					<li><a href="#"><img src="img/159bd86408659902e3e523facab750b3.png"</a><a href="#">数码特惠</a></li>
+					<li class="liWu"><a href="#"><img src="img/a23a6093036ec6a1b8a52c5e35addf37.png"</a><a href="#">优选配件</a></li>
+				</ul>
+				<div  class="serve-r">
+					<h3 class="clear">
+						<img src="img/icon3.png"/>
+						<ul  id="wrap-bottom">
+							<li><a href="#">荣耀畅玩6A新品开售，购机赢美颜密...</a></li>
+							<li><a href="#">华为新机预购大会</a></li>
+							<li><a href="#">荣耀畅玩6A新品开售，赢《小时代》好礼</a></li>
+							<li><a href="#">荣耀畅玩p10，购机赢美颜密...</a></li>
+							<li><a href="#">荣耀畅玩6A新品开售，先到先得</a></li>
+						</ul>
+						
+					</h3>
+					<script src="js/jquery-1.8.3.js" type="text/javascript"></script>
+					<script>						
+						function s(){
+							var i=-1;
+							
+							 // auto play 
+						    function autoScroll(){ 
+						       setInterval(function(){ 
+						            i++; 
+						           //console.log(i);
+						            moveTit(i); 
+						        }, 2000); 
+						  
+						    } 
+						    function moveTit(num){
+						    	 if(i==5){
+											i=1;
+											$("#wrap-bottom").css({top:0});
+										}
+						    	$("#wrap-bottom").stop().animate({top:i*-48+"px"},400);
+						    }
+						    autoScroll();
+											
+						}
+						s();
+					</script>
+					<p>
+						<a href="#" class="a01"><img src="img/e98e288625183ec81a4a77e47b1053bc.png"</a><a href="#" class="a0">实名认证</a>
+						<a href="#"><img src="img/b6f622b1c9c69bd3c03d6b1e5f6cae1a.png"</a><a href="#" class="a0">芝麻信用</a>
+						<a href="#"><img src="img/7bed8c195780c624556deced5677e4d6.png"</a><a href="#">优购码</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div id="listTu">
+			<div class="margin clear">
+				<img src="img/20170523090033278.jpg" />
+				<img src="img/20170523220856671.jpg" />
+				<img src="img/20170523154836887.png" />
+				<img src="img/2017052616312797.png" />
+			</div>
+		</div>
+		<div id="main">
+			<div class="margin">
+				<div class="hot">
+					<h3>热销单品</h3>
+					<div class="clear">
+						<a class="a11" href="#"><img src="img/t6.jpg" /></a>
+						<ul class="clear">
+							<li>
+								<a href="#">
+									<img src="img/428_428_1494831986621mp.jpg"/>
+									<img class="baokuan" src="img/1489666213376.png"/>
+									<h4>荣耀8青春版</h4>
+									<p>最高减50/送PPTV会员</p>
+									<b>￥1099</b>								
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/428_428_1480922774554mp.jpg"/>
+									<img class="baokuan" src="img/1489666213376.png"/>
+									<h4>HUAWEI Mate 9Pro</h4>
+									<p>享12期免息</p>
+									<b>￥4699</b>								
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/1496214523346.jpg"/>
+									<img class="baokuan" src="img/1489666630821.png"/>
+									<h4>荣耀8</h4>
+									<p>顶配版直降200元</p>
+									<b>￥2299</b>								
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/1496247658418.png"/>
+									<img class="baokuan" src="img/1489666603242.png"/>
+									<h4>荣耀8青春版</h4>
+									<p>最高减50/送PPTV会员</p>
+									<b>￥1099</b>								
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/428_428_1492570593616mp.jpg"/>
+									<img class="baokuan" src="img/1489666603242_002.png"/>
+									<h4>荣耀8青春版</h4>
+									<p>最高减50/送PPTV会员</p>
+									<b>￥1099</b>								
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/428_428_1494831986621mp.jpg"/>
+									<img class="baokuan" src="img/1489666213376.png"/>
+									<h4>荣耀8青春版</h4>
+									<p>最高减50/送PPTV会员</p>
+									<b>￥1099</b>								
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/428_428_1494831986621mp.jpg"/>
+									<img class="baokuan" src="img/1489666213376.png"/>
+									<h4>荣耀8青春版</h4>
+									<p>最高减50/送PPTV会员</p>
+									<b>￥1099</b>								
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/428_428_1494831986621mp.jpg"/>
+									<img class="baokuan" src="img/1489666213376.png"/>
+									<h4>荣耀8青春版</h4>
+									<p>最高减50/送PPTV会员</p>
+									<b>￥1099</b>								
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
