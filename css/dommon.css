@@ -1,0 +1,230 @@
+.margin {
+  width: 1200px;
+  margin: 0 auto; }
+
+#top {
+  border-bottom: 1px solid #eaeaea;
+  font: 12px/30px "";
+  height: 30px;
+  background: #fafafa; }
+
+#top .top-l {
+  float: left;
+  position: relative; }
+
+#top .top-l .hide {
+  position: absolute;
+  left: 139px;
+  top: 30px;
+  background: #fff;
+  color: #3a3a3a;
+  width: 87px;
+  border: 1px solid #eaeaea;
+  display: none;
+  border-top: none; }
+
+#top .top-l .hide p {
+  padding-left: 5px; }
+
+#top .top-l .hide p a {
+  color: #3a3a3a; }
+
+#top .top-l .hide p a:hover {
+  color: #ca141d; }
+
+#top ul li {
+  float: left; }
+
+#top .top-l a {
+  color: #a4a4a4;
+  padding: 0px 8px 0px 8px; }
+
+#top .top-l .te1 {
+  width: 87px; }
+
+#top .top-l .te1 .a1 {
+  padding-right: 30px;
+  border-left: 1px solid #c8c8c8;
+  border-right: 1px solid #c8c8c8;
+  background: url(../img/t1.jpg) no-repeat 70px 5px; }
+
+#top .top-l .te1:hover {
+  background: #fff; }
+
+#top .top-l .te1:hover .a1 {
+  background: #fff url(../img/t5.jpg) no-repeat 70px 5px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  color: #3a3a3a; }
+
+#top .top-l .te1:hover .a1:hover {
+  color: #ca141d; }
+
+#top .top-l .te1:hover .hide {
+  display: block; }
+
+#top .top-l a:hover {
+  color: #ca141d; }
+
+#top .top-l span {
+  color: #c8c8c8; }
+
+#top .top-r {
+  float: right;
+  position: relative; }
+
+#top .top-r .hide {
+  position: absolute;
+  left: 65px;
+  top: 30px;
+  background: #fff;
+  color: #3a3a3a;
+  width: 87px;
+  border: 1px solid #eaeaea;
+  display: none;
+  border-top: none; }
+
+#top .top-r .hide p {
+  padding-left: 5px; }
+
+#top .top-r .hide p a {
+  color: #3a3a3a; }
+
+#top .top-r .hide p a:hover {
+  color: #ca141d; }
+
+#top .top-r dt {
+  float: left; }
+
+#top .top-r dd {
+  float: left; }
+
+#top .top-r a {
+  color: #a4a4a4; }
+
+#top .top-r dt a {
+  border-right: 1px solid #eaeaea;
+  padding: 0 30px 0 0px;
+  background: url(../img/t1.jpg) no-repeat 50px 5px; }
+
+#top .top-r dd .a1 {
+  padding: 0 30px 0 5px;
+  background: url(../img/t1.jpg) no-repeat 70px 5px; }
+
+#top .top-r dd:hover {
+  background: #fff; }
+
+#top .top-r dd:hover .a1 {
+  background: #fff url(../img/t5.jpg) no-repeat 70px 5px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff; }
+
+#top .top-r dd:hover .hide {
+  display: block; }
+
+#top .top-r a:hover {
+  color: #ca141d; }
+
+#top .top-r a img {
+  margin-left: 2px; }
+
+#top .top-r span {
+  color: #c8c8c8; }
+
+header {
+  background: #fafafa;
+  height: 70px;
+  border: 1px solid #eaeaea; }
+
+header .header-l {
+  float: left;
+  padding: 20px; }
+
+header .header-r {
+  float: right;
+  width: 652px;
+  margin-top: 20px; }
+
+header .header-r .header-r-l {
+  float: left;
+  width: 470px;
+  margin-right: 20px; }
+
+header .header-r .header-r-l .txt {
+  float: left;
+  height: 30px;
+  width: 430px;
+  border: 1px solid #eaeaea;
+  padding-left: 5px; }
+
+header .header-r .header-r-l .btn {
+  float: left;
+  background: #fff url(../img/t2.jpg) no-repeat 6px 7px;
+  border: 1px solid #eaeaea;
+  width: 32px;
+  height: 32px;
+  display: block; }
+
+header .header-r .header-r-l .btn:hover {
+  background: url(../img/t4.jpg) no-repeat; }
+
+header .header-r .header-r-c {
+  float: left;
+  margin-right: 20px;
+  position: relative; }
+
+header .header-r .header-r-c .shopCar {
+  border: 1px solid #eaeaea;
+  display: block;
+  width: 32px;
+  height: 30px;
+  background: #fff;
+  text-align: center; }
+
+header .header-r .header-r-c .shopCar img {
+  margin-top: 8px; }
+
+header .header-r .header-r-c .shopCar p {
+  width: 22px;
+  height: 22px;
+  font: 10px/22px "";
+  background: #CA141D;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  left: 23px;
+  top: -10px; }
+
+header .header-r .header-r-r {
+  float: left;
+  background: #fff;
+  font: 12px/30px "";
+  padding: 0px 4px;
+  border: 1px solid #eaeaea; }
+
+header .header-r .header-r-r a {
+  color: #333; }
+
+header .header-r .header-r-r a:hover {
+  color: #CA141D; }
+
+header .header-r .header-r-r .register-l {
+  margin: 0 0 0 12px; }
+
+header .header-r .header-r-r .register-r {
+  margin: 0 12px 0 0; }
+
+nav span {
+  font: 18px/42px "";
+  color: #000;
+  padding: 12px 153px 12px 16px;
+  border-left: 1px solid #eaeaea;
+  border-right: 1px solid #eaeaea; }
+
+nav b a {
+  margin-left: 50px;
+  color: #3a3a3a;
+  padding-bottom: 2px; }
+
+nav b a:hover {
+  border-bottom: 3px solid #CA141D; }
