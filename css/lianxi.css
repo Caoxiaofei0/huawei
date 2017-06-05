@@ -1,5 +1,6 @@
 body{background: #f5f5f5;}
 .margin{width:1200px;margin:0 auto;}
+.margin-register{width:1042px;margin:0 auto;}
 
 #top{border-bottom:1px solid #eaeaea;font:12px/30px "";height:30px;}
 #top .top-l{float:left;position: relative;}
@@ -56,7 +57,10 @@ header .header-r .header-r-l p a:hover{color: #CA141D;}
 header .header-r .header-r-l .btn{float:left;background:#fff url(../img/t2.jpg) no-repeat 6px 7px;border: 1px solid #eaeaea;width: 32px;height: 32px;display: block;}
 header .header-r .header-r-l .btn:hover{background: url(../img/t4.jpg) no-repeat;}
 header .header-r .header-r-c{float: left;margin-right: 20px;position: relative;}
-header .header-r .header-r-c .shopCar{border:1px solid #eaeaea;display: block;width:32px;height:30px;background: #fff;text-align: center;}
+header .header-r .header-r-c .shopCar{border:1px solid #eaeaea;display: block;width:32px;height:30px;background: #fff;text-align: center;position: relative;}
+header .header-r .header-r-c .shopCar .hide-shopCar{position:absolute;width: 372px;height:200px;border: 1px solid #eaeaea;border-top: none;z-index: 50000;background: #fff;left: -341px;top: 30px;text-align: center;padding-top:45px ;display: none;}
+header .header-r .header-r-c .shopCar:hover .hide-shopCar{display: block;}
+header .header-r .header-r-c .shopCar .hide-shopCar .carP{color: #333333;font: 12px/82px "";}
 header .header-r .header-r-c .shopCar img{margin-top:8px ;}
 header .header-r .header-r-c .shopCar p{width:22px;height:22px;font: 10px/22px "";background: #CA141D;border-radius: 50%;color:#fff;position:absolute;left: 23px;top:-10px;}
 header .header-r .header-r-r{float: left;background: #fff;font: 12px/30px "";padding: 0px 4px;border:1px solid #eaeaea;}
@@ -247,10 +251,6 @@ nav b a:hover{border-bottom: 3px solid #CA141D;}
 #fixedId h3 a span{padding: 3px;background: #6d6d6d;border-radius: 6px;font-size: 6px;color: #fff;}
 
 
-
-
-
-
 #customerService{background: #f0f0f0;}
 #customerService ul{border-bottom:1px solid #eaeaea;}
 #customerService ul li {float: left;font: 18px/140px "";margin-right: 90px;}
@@ -285,3 +285,27 @@ footer .footer-c{float: left;width: 650px;margin: 28px 54px 0 38px;font: 12px/20
 footer .footer-c p a{color: #A4A4A4;}
 footer .footer-c p a:hover{color: #CA141D;}
 footer .footer-r{float: left;margin-top: 42px;}
+
+
+#register-logo{padding-left:27px;height: 78px;}
+#main-register{padding-left:666px;height: 655px;background: url(../img/t18.jpg) no-repeat 27px 72px;padding-top:72px ;border-bottom: 1px solid #d7d7d7;}
+#main-register h3{font: 30px "黑体";color: #ea5e00;}
+#main-register div input{margin-top: 16px;padding-left:3px ;}
+#main-register div .inpClass{width: 280px;height:36px;}
+#main-register div .txtClass{height:36px;width: 144px;}
+#main-register div h5{border-bottom: 1px solid #d7d7d7;width: 285px;}
+#main-register div .bntClass{padding: 14px 130px;color: #fff;background: #CA141D;border: none;}
+#main-register div .chkClass{float: left;margin-top: 30px;}
+#main-register div .spanId02{margin-right:126px ;font: 12px/70px "";color: #333333;}
+#main-register div #spanId{}
+#main-register div #spanId01{}
+#main-register div a{font: 12px/70px "";color: #333333;}
+#main-register .pId01{width: 294px;font: 12px/16px "";color: #999;}
+#main-register .pId02{font: 12px/70px "";color: #999;}
+#main-register h6{font: 12px/56px "";}
+#main-register h6 a{margin-left:20px ;color: #ff9937;}
+
+#footer-register{text-align: center;padding-top: 30px;height: 124px;}
+#footer-register p{font: 12px/24px "";color: #999;}
+#footer-register p:first-child a{color: #999;margin-right:30px ;}
+#footer-register p:first-child a:hover{text-decoration: underline;}

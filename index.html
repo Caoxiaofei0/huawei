@@ -6,17 +6,17 @@
 		<link href="css/public.css" rel="stylesheet" type="text/css">
         
         
-        <link href="css/lianxi.css" rel="stylesheet" type="text/css">
+        <link href="css/index.css" rel="stylesheet" type="text/css">
         <!--
-        	<link href="css/dommon.css" rel="stylesheet" type="text/css">
         	
+        	<link href="css/lianxi.css" rel="stylesheet" type="text/css">
         	作者：offline
         	时间：2017-06-01
         	描述：
         	
         -->
 	</head>
-	<body>
+	<body style="background: #fafafa;">
 		<div id="top">
 			<div class="margin clear">
 				<ul class="top-l clear">
@@ -89,12 +89,20 @@
 						<a class="shopCar" href="#">
 							<img src="img/t3.jpg">
 							<p>0</p>
+							<div class="hide-shopCar">
+								<img class="car" src="img/t19.jpg"/><br/>
+								<span class="carP">您的购物车是空的，赶紧选购吧</span>
+							</div>
 						</a>
 					</div>					
-					<div class="header-r-r">
-						<a class="register-l" href="#">登录</a>
-						<span>|</span>
-						<a class="register-r" href="#">注册</a>
+					<div id="register-enroll-parent" class="header-r-r">
+						<p style="display: none;position: relative;" id="register-enroll-p"><a href="#" style="color: #FF0000;font-weight: 700;" id="register-enroll-span"></a><input style="display: none;position: absolute;" id="zhuxiaoSpan" type="button" value="注销"/></p>
+						
+						<div  id="register-enroll">
+							<a class="register-l" href="register.html">登录</a>
+							<span>|</span>
+							<a class="register-r" href="enroll.html">注册</a>
+						</div>
 					</div>
 				</div>
 			</div>			
@@ -115,53 +123,7 @@
 		</nav>
 		<div id="banner">
 			<div id="slideshow">								
-			</div>
-			<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
-			<script type="text/javascript" src="js/tools.js"></script>
-			<script type="text/javascript" src="js/index.js"></script>
-			<script type="text/javascript">
-				window.onload = function(){
-				var slideshow=new  Slideshow({
-							boxId:"#slideshow",
-							imgs:["img/20170530104947269.jpg","img/20170531225831208.jpg","img/20170601010625393.jpg","img/2017060101122355.jpg","img/20170601090637333.jpg","img/20170601104155194.jpg"],
-							width:1343,
-							height:450,
-							timeSpace:3000,
-							fadeInOutTime:2000,
-							btnColor:"#fff",
-							btnHighColor:"#000",
-							btnWidth:10,
-							btnHeight:10,
-							btnHasOrd:true
-					});
-					var slideshow01=new  Slideshow({
-							boxId:"#slideshow01",
-							imgs:["img/20170313112742735.jpg","img/20170313112742735.jpg","img/20170521204033931.jpg","img/20170521204008567.jpg","img/20170522162852612.jpg","img/20170524145524232.jpg"],
-							width:1200,
-							height:120,
-							timeSpace:3000,
-							fadeInOutTime:2000,
-							btnColor:"#fff",
-							btnHighColor:"pink",
-							btnWidth:10,
-							btnHeight:10,
-							btnHasOrd:true
-					});	
-					var slideshow02=new  Slideshow({
-							boxId:"#slideshow02",
-							imgs:["img/20170313112742735.jpg","img/20170313112742735.jpg","img/20170521204033931.jpg","img/20170521204008567.jpg","img/20170522162852612.jpg","img/20170524145524232.jpg"],
-							width:1200,
-							height:120,
-							timeSpace:3000,
-							fadeInOutTime:2000,
-							btnColor:"#fff",
-							btnHighColor:"pink",
-							btnWidth:10,
-							btnHeight:10,
-							btnHasOrd:true
-					});						
-				}									
-			</script>
+			</div>			
 			<ul class="ulId">
 				<li>
 					<h3>
@@ -298,9 +260,12 @@
 				<div class="serve-l">
 					<img src="img/img88.jpg" />
 					<div class="serve-l-r">
-						<p>欢迎来到华为商城，请<a href="#">登录</a></p>
-						<p>还没注册？<a href="#">注册</a>即可享受<span>&gt;</span></p>
-						<p><a class="teA1" href="#">新人福利</a><a class="teA1" href="#">特权频道</a></p>
+						<p style="display: none;" id="register-enroll-p-1">欢迎来到华为商城，<br/><span style="color: #FF0000;font-weight: 700;" id="register-enroll-span-1"></span></p>
+						<div id="register-enroll-div">
+							<p>欢迎来到华为商城，请<a href="register.html">登录</a></p>
+							<p>还没注册？<a href="enroll.html">注册</a>即可享受<span>&gt;</span></p>
+						</div>						
+						<p><a class="teA1" href="#">新人福利</a><a class="teA1" href="#">特权频道</a></p>												
 					</div>
 				</div>
 				<ul class="clear serve-c">
@@ -322,12 +287,7 @@
 							<li><a href="#">荣耀畅玩6A新品开售，先到先得</a></li>
 						</ul>
 						
-					</h3>
-					<script src="js/jquery-1.8.3.js" type="text/javascript"></script>
-					<script src="js/index1.js" type="text/javascript"></script>
-					<script>												
-						s();
-					</script>
+					</h3>																																
 					<p>
 						<a href="#" class="a01"><img src="img/e98e288625183ec81a4a77e47b1053bc.png"</a><a href="#" class="a0">实名认证</a>
 						<a href="#"><img src="img/b6f622b1c9c69bd3c03d6b1e5f6cae1a.png"</a><a href="#" class="a0">芝麻信用</a>
@@ -745,3 +705,71 @@
 		</footer>
 	</body>
 </html>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/cookieTools1702.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+	var slideshow=new  Slideshow({
+				boxId:"#slideshow",
+				imgs:["img/20170530104947269.jpg","img/20170531225831208.jpg","img/20170601010625393.jpg","img/2017060101122355.jpg","img/20170601090637333.jpg","img/20170601104155194.jpg"],
+				width:1343,
+				height:450,
+				timeSpace:3000,
+				fadeInOutTime:2000,
+				btnColor:"#fff",
+				btnHighColor:"#000",
+				btnWidth:10,
+				btnHeight:10,
+				btnHasOrd:true
+		});
+		var slideshow01=new  Slideshow({
+				boxId:"#slideshow01",
+				imgs:["img/20170313112742735.jpg","img/20170313112742735.jpg","img/20170521204033931.jpg","img/20170521204008567.jpg","img/20170522162852612.jpg","img/20170524145524232.jpg"],
+				width:1200,
+				height:120,
+				timeSpace:3000,
+				fadeInOutTime:2000,
+				btnColor:"#fff",
+				btnHighColor:"pink",
+				btnWidth:10,
+				btnHeight:10,
+				btnHasOrd:true
+		});	
+		var slideshow02=new  Slideshow({
+				boxId:"#slideshow02",
+				imgs:["img/20170313112742735.jpg","img/20170313112742735.jpg","img/20170521204033931.jpg","img/20170521204008567.jpg","img/20170522162852612.jpg","img/20170524145524232.jpg"],
+				width:1200,
+				height:120,
+				timeSpace:3000,
+				fadeInOutTime:2000,
+				btnColor:"#fff",
+				btnHighColor:"pink",
+				btnWidth:10,
+				btnHeight:10,
+				btnHasOrd:true
+		});						
+	}
+	s();
+	if(getCookie("name")!=""){
+		$("#register-enroll").css({"display":"none"});
+		$("#register-enroll-p").css({"display":"block","float": "left"});
+		$("#register-enroll-span").html(getCookie("name"));
+		$("#register-enroll-div").css({"display":"none"});
+		$("#register-enroll-p-1").css({"display":"block"});
+		$("#register-enroll-span-1").html(getCookie("name"));		
+	}
+	$("#register-enroll-span").click(function(){
+		$("#zhuxiaoSpan").css({"display":"block","right":"-50px","top":"5px"});
+		$("#zhuxiaoSpan").click(function(){
+			$("#register-enroll").css({"display":"block"});
+			$("#register-enroll-p").css({"display":"none"});
+			$("#register-enroll-div").css({"display":"block"});
+			$("#register-enroll-p-1").css({"display":"none"});
+			removeCookie("name");
+		});
+	});
+		
+	
+</script>

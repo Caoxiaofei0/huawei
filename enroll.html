@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/public.css" />
+	</head>
+	<body style="background: #f1f1f1;">		
+		<div id="enroll-logo">
+			<div class="margin-enroll">
+				<img class="enroll-logo-img" src="img/img-enroll/e1.jpg" />
+			</div>			
+		</div>
+		<div id="header-enroll" class="clear margin-enroll">
+			<p>
+				<a href="#"><img src="img/img-enroll/e2.jpg"/>手机号</a>
+				<a href="#"><img src="img/img-enroll/e3.jpg"/>电子邮箱</a>
+			</p>
+			<p>
+				<span>已有华为账号</span>
+				<a href="register.html">登录</a>
+				<img src="img/img-enroll/e4.jpg" />
+			</p>
+		</div>
+		<div id="main-enroll" class="margin-enroll">			
+			<h3>注册华为账号</h3>
+			<p>华为账号适用于访问所有华为服务。您可登录该账号访问云服务、华为商城、华为/荣耀官网、花粉俱乐部及其他服务。</p>
+			<h4>华为账号</h4>
+			<p>输入手机号作为您的华为账号，用于登录、重设密码、验证身份。</p>
+			<div>
+				<b>手机号：</b>
+				<select>
+					<option>+86（中国）</option>
+				</select>
+				<input id="enroll-inpId1"  class="enroll-inp1" type="text" placeholder="输入手机号"/><s id="sId1"></s><s id="sId11"></s>
+			</div>
+			<div>
+				<b>验证码：</b>					
+				<input  class="enroll-inp2" type="text" placeholder="验证码" id="yzm" onblur="sum1()"/>
+				<span class="enroll-span" id="spanId" onclick="testF1()"></span>
+				<span id="spanId01"></span>
+			</div>
+			<h4>设置登录密码</h4>
+			<p>密码由8-32个数字或字母组成。</p>
+			<div>
+				<b>密码：</b>					
+				<input  id="enroll-inpId2" class="enroll-inp3" type="password" placeholder="8-32个字符"/>
+				<span class="span-strength" id="strength1">低</span><span class="span-strength"  id="strength2">中</span><span class="span-strength"  id="strength3">高</span><s id="sId2"></s>
+			</div>
+			<div>
+				<b>确认密码：</b>					
+				<input  id="enroll-inpId3" class="enroll-inp4" type="password" placeholder="8-32个字符"/><s id="sId3"></s>
+			</div>
+			<h5>华为账号服务条款</h5>
+			<h4 class="noBorder">国家/地区</h4>
+			<p>您正在注册中国的华为账号。</p>
+			<div class="yesBorder">
+				<p>华为将为您创建唯一的华为账号，来标识您和提供优质的服务，且需搜集和处理以下信息：</p>
+				<p>· 设备信息，包括：IMEI、IMSI、SN、国家/地区、语言、型号和版本号；</p>
+				<p>· 个人信息，包括：手机号、邮件地址、密码、头像、昵称、生日、姓名和性别；</p>
+				<p>上述数据将传输并保存至华为全球的服务器。您可以通过销户删除所有个人数据。</p>
+				<p>华为账号用户可以通过手机号或邮件地址搜索到您，并可查看您的公开信息，包括：头像、昵称、城市等。您也可以在华为账号的设置中关闭此功能。</p>
+				<p>点击“注册”，即表示您同意上述内容及<a href="#">华为账号用户协议</a>并确认您已阅读<a href="#">华为隐私政策。</a></p>
+			</div>			
+		</div>
+		<div class="margin-enroll">
+			<input id="inpEnroll" type="button" value="注册"/>
+		</div>		
+		<footer id="enroll-footer">
+			<p>
+				<a href="#">华为隐私政策</a>
+				<a href="#">华为账号用户协议</a>
+				<span>|</span>
+				<a href="#">常见问题</a>
+			</p>
+			<p>Copyright &copy; 2011-2017 华为技术有限公司 版权所有 保留一切权利  苏B2-20070200号|苏IPC备09062682号-9</p>
+		</footer>
+	</body>
+</html>
+<script type="text/javascript" src="js/enroll.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/cookieTools1702.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+<script>
+	$(function(){		
+		testF1();
+		//var spanInner=document.getElementById("spanId01");
+		$("#enroll-inpId1").blur(function(){
+			$.post("enroll.php",{userName:$("#enroll-inpId1").val()},function(data){
+			if(data=="false"&$my("enroll-inpId1").value!=""){									
+			 	document.getElementById("sId11").innerHTML="此用户名可以注册，赶紧注册吧！！！";
+			}else if($my("enroll-inpId1").value!=""){
+				document.getElementById("sId11").innerHTML="对不起，此用户名已被注册！";
+			}
+		});					
+		})
+		$("#inpEnroll").click(function(){
+			
+			if(document.getElementById("sId1").innerHTML=="√"&document.getElementById("sId2").innerHTML=="√"&document.getElementById("sId3").innerHTML=="√"){
+				$.post("enroll1.php",{userName:$("#enroll-inpId1").val(),userPass:$("#enroll-inpId2").val()},function(data){
+			if(data=="注册成功"){				
+				alert("亲，注册成功！马上跳转到主页面");
+				//存cookie
+				saveCookie("name",$("#enroll-inpId1").val(),5);
+				alert(getCookie("name"));
+				//跳到主页
+			 	location.href="index.html";
+			}else{
+				//登录失败
+				alert("亲，注册失败，用户名或者密码不合格");
+			}
+		});		
+			}else{
+				alert("亲，注册失败，用户名或者密码不合格");
+			}
+		
+	});
+	})
+</script>
