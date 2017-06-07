@@ -158,6 +158,10 @@ Slideshow.prototype.goImg = function(ord){
   								ulId.style.left="-108px";							
 						}else if(ulId.style.left=="-108px"){
   								ulId.style.left="0px";							
+						}else if(ulId.style.left=="-654px"){
+  								ulId.style.left="0px";							
+						}else if(ulId.style.left=="-1308px"){
+  								ulId.style.left="-654px";							
 						}
 					}
 					function fun5(){

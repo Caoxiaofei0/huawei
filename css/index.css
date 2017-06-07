@@ -1338,7 +1338,7 @@ footer {
   #goodsdetails-main .goodsdetails-main-c .goodsdetails-main-c-l #boxBig {
     position: absolute;
     overflow: hidden;
-    left: 515px;
+    left: 550px;
     top: 216px;
     display: none; }
     #goodsdetails-main .goodsdetails-main-c .goodsdetails-main-c-l #boxBig #goodsdetails-main-c-l-da02 {
@@ -1351,7 +1351,8 @@ footer {
       padding: 25px 4px;
       border: 1px solid #eaeaea; }
       #goodsdetails-main .goodsdetails-main-c .goodsdetails-main-c-l p a img {
-        transition: .5s; }
+        transition: .5s;
+        width: 50px; }
     #goodsdetails-main .goodsdetails-main-c .goodsdetails-main-c-l p a:hover {
       border: 1px solid #990000; }
       #goodsdetails-main .goodsdetails-main-c .goodsdetails-main-c-l p a:hover img {
@@ -1398,7 +1399,7 @@ footer {
     border: none; }
 
 #goodsdetails-main .goodsdetails-main-b {
-  margin-top: 20px; }
+  margin: 20px 0; }
   #goodsdetails-main .goodsdetails-main-b .goodsdetails-main-b-l {
     width: 240px;
     border: 1px solid #eaeaea;
@@ -1408,40 +1409,246 @@ footer {
       padding-left: 10px;
       background: #f7f7f7;
       border-bottom: 1px solid #eaeaea; }
+    #goodsdetails-main .goodsdetails-main-b .goodsdetails-main-b-l div img {
+      width: 100px; }
   #goodsdetails-main .goodsdetails-main-b .goodsdetails-main-b-r {
+    width: 900px;
+    float: right;
+    border: 1px solid #ccc;
+    padding: 20px; }
+  #goodsdetails-main .goodsdetails-main-b #tab_t {
     width: 940px;
-    float: right; }
+    position: relative;
+    height: 400px;
+    overflow: hidden; }
+    #goodsdetails-main .goodsdetails-main-b #tab_t li {
+      float: left;
+      width: 80px;
+      height: 24px;
+      line-height: 24px;
+      margin: 0 4px;
+      text-align: center;
+      border: 1px solid #ccc;
+      background: #f5f5f5;
+      cursor: pointer; }
+      #goodsdetails-main .goodsdetails-main-b #tab_t li .hide {
+        border: 1px solid #ccc;
+        display: none;
+        width: 900px;
+        position: absolute;
+        left: 4px; }
 
-.wrap {
-  width: 500px;
-  margin: 20px auto; }
-
-.hide {
-  display: none; }
-
-#tab_t {
-  height: 25px;
-  border-bottom: 1px solid #ccc; }
-
-#tab_t li {
-  float: left;
-  width: 80px;
-  height: 24px;
-  line-height: 24px;
-  margin: 0 4px;
+#prefecture-main {
   text-align: center;
-  border: 1px solid #ccc;
-  border-bottom: none;
-  background: #f5f5f5;
-  cursor: pointer; }
-
-#tab_t .act {
-  position: relative;
-  height: 25px;
-  margin-bottom: -1px;
-  background: #fff; }
-
-#tab_c {
-  border: 1px solid #ccc;
-  border-top: none;
-  padding: 20px; }
+  padding: 30px 0; }
+  #prefecture-main h5 {
+    border-bottom: 3px solid #7B0000;
+    width: 20px;
+    margin: 10px auto; }
+  #prefecture-main h4 {
+    font-size: 28px;
+    color: #000;
+    margin-bottom: 25px; }
+  #prefecture-main ul li {
+    float: left;
+    width: 298px;
+    border: 1px solid #eaeaea;
+    position: relative;
+    overflow: hidden; }
+    #prefecture-main ul li img {
+      margin: 20px 0;
+      transition: .5s; }
+    #prefecture-main ul li h3 {
+      font: 12px/36px "";
+      margin-bottom: 10px; }
+      #prefecture-main ul li h3 span {
+        color: #990000; }
+    #prefecture-main ul li s {
+      display: block;
+      border-bottom: 3px solid #7B0000;
+      width: 298px;
+      position: absolute;
+      left: -298px;
+      transition: .5s; }
+  #prefecture-main ul li:nth-child(1):hover img {
+    transform: scale(1.1); }
+  #prefecture-main ul li:nth-child(1):hover s {
+    left: 0px; }
+  #prefecture-main ul li:nth-child(2):hover img {
+    transform: rotate(360deg); }
+  #prefecture-main ul li:nth-child(2):hover s {
+    left: 0px; }
+  #prefecture-main ul li:nth-child(3):hover img {
+    transform: skew(0deg, 15deg); }
+  #prefecture-main ul li:nth-child(3):hover s {
+    left: 0px; }
+  #prefecture-main ul li:nth-child(4):hover img {
+    transform: translate(10px, 10px); }
+  #prefecture-main ul li:nth-child(4):hover s {
+    left: 0px; }
+  #prefecture-main ol {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; }
+    #prefecture-main ol li div {
+      height: 100%;
+      width: 162px;
+      float: right;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff; }
+      #prefecture-main ol li div h3 {
+        font: 26px/36px ""; }
+        #prefecture-main ol li div h3 span {
+          font: 12px/24px ""; }
+    #prefecture-main ol li:nth-child(1) {
+      float: left;
+      width: 386px;
+      height: 190px;
+      background: url(../img/1496370350450.jpg) no-repeat; }
+    #prefecture-main ol li:nth-child(2) {
+      float: left;
+      width: 386px;
+      height: 190px;
+      background: url(../img/20000yidongdianyuan.jpg) no-repeat; }
+    #prefecture-main ol li:nth-child(3) {
+      float: left;
+      width: 386px;
+      height: 190px;
+      background: url(../img/yundongerji.jpg) no-repeat; }
+  #prefecture-main li:hover div {
+    background: rgba(255, 100, 100, 0.7); }
+  #prefecture-main .recommendation-c {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    background: #fff;
+    margin: 20px 0;
+    border-bottom: 1px solid #eaeaea; }
+    #prefecture-main .recommendation-c .lta, #prefecture-main .recommendation-c .gta {
+      position: absolute;
+      padding: 28px 6px;
+      color: #fff;
+      background: #cfcfcf;
+      z-index: 100;
+      border: none; }
+    #prefecture-main .recommendation-c .lta {
+      left: 0;
+      top: 115px; }
+    #prefecture-main .recommendation-c .gta {
+      right: 0;
+      top: 115px; }
+    #prefecture-main .recommendation-c ul {
+      width: 2616px;
+      height: 300px;
+      position: relative; }
+      #prefecture-main .recommendation-c ul li {
+        float: left;
+        height: 300px;
+        width: 217px;
+        position: relative;
+        text-align: center;
+        border-right: 1px solid #eaeaea;
+        position: absolute;
+        top: 0px; }
+        #prefecture-main .recommendation-c ul li img {
+          width: 130px;
+          margin-top: 35px;
+          margin-bottom: 35px; }
+        #prefecture-main .recommendation-c ul li img.baokuan {
+          width: 60px;
+          position: absolute;
+          left: 140px;
+          top: 100px; }
+        #prefecture-main .recommendation-c ul li h4 {
+          font: 12px/24px "";
+          color: #3a3a3a; }
+        #prefecture-main .recommendation-c ul li p {
+          font: 12px/18px "";
+          color: #a4a4a4; }
+        #prefecture-main .recommendation-c ul li b {
+          font: 12px/36px "";
+          color: #CA141D; }
+      #prefecture-main .recommendation-c ul li:nth-child(1) {
+        left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(2) {
+        left: 218px; }
+      #prefecture-main .recommendation-c ul li:nth-child(3) {
+        left: 436px; }
+      #prefecture-main .recommendation-c ul li:nth-child(4) {
+        left: 654px; }
+      #prefecture-main .recommendation-c ul li:nth-child(5) {
+        left: 872px; }
+      #prefecture-main .recommendation-c ul li:nth-child(6) {
+        left: 1090px; }
+      #prefecture-main .recommendation-c ul li:nth-child(7) {
+        left: 1308px; }
+      #prefecture-main .recommendation-c ul li:nth-child(8) {
+        left: 1526px; }
+      #prefecture-main .recommendation-c ul li:nth-child(9) {
+        left: 1744px; }
+      #prefecture-main .recommendation-c ul li:nth-child(10) {
+        left: 1962px; }
+      #prefecture-main .recommendation-c ul li:nth-child(11) {
+        left: 2180px; }
+      #prefecture-main .recommendation-c ul li:nth-child(12) {
+        left: 2398px; }
+      #prefecture-main .recommendation-c ul li:nth-child(1):hover {
+        left: 0px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(1):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(2):hover {
+        left: 218px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(2):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(3):hover {
+        left: 436px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(3):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(4):hover {
+        left: 654px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(4):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(5):hover {
+        left: 872px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(5):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(6):hover {
+        left: 1090px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(6):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(7):hover {
+        left: 1308px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(7):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(8):hover {
+        left: 1526px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(8):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(9):hover {
+        left: 1744px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(9):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(10):hover {
+        left: 1962px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(10):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(11):hover {
+        left: 2180px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(11):hover s {
+          left: 0px; }
+      #prefecture-main .recommendation-c ul li:nth-child(12):hover {
+        left: 2398px;
+        top: -3px; }
+        #prefecture-main .recommendation-c ul li:nth-child(12):hover s {
+          left: 0px; }

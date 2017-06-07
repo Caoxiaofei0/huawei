@@ -38,18 +38,19 @@
 		$(".goodlist-nav-li").eq(5).mouseleave(function(){		
 			$(".goodlist-nav-hide").eq(4).slideUp(500,function(){			
 			});
-		});		
-		
-		
+		});						
 		$.get("houtai/getGoodsList.php", function(persons){
 		var persons=eval('('+persons+')');
-    		console.log(persons);
     		for(var i=0;i<persons.length;i++){
 				if((i!=0)&((i+1)%5==0)){
-				$("#goodlist-main-ul").append('<li style="margin-right:0px;"><a href="#"><img src="'+persons[i].goodsImg+'"/><h3>'+persons[i].goodsName+'</h3><span>￥'+persons[i].goodsPrice+'</span><p class="clear"><span>'+persons[i].goodsDesc+'</span><span>'+persons[i].beiyong2+'</span></p></a></li>');
-				}else{$("#goodlist-main-ul").append('<li><a href="#"><img src="'+persons[i].goodsImg+'"/><h3>'+persons[i].goodsName+'</h3><span>￥'+persons[i].goodsPrice+'</span><p class="clear"><span>'+persons[i].goodsDesc+'</span><span>'+persons[i].beiyong2+'</span></p></a></li>');
+				$("#goodlist-main-ul").append('<li id="'+persons[i].goodsId+'" style="margin-right:0px;"><a href="goodsdetails.html"><img src="'+persons[i].goodsImg+'"/><h3>'+persons[i].goodsName+'</h3><span>￥'+persons[i].goodsPrice+'</span><p class="clear"><span>'+persons[i].goodsDesc+'</span><span>'+persons[i].beiyong2+'</span></p></a></li>');
+				}else{$("#goodlist-main-ul").append('<li id="'+persons[i].goodsId+'"><a href="goodsdetails.html"><img src="'+persons[i].goodsImg+'"/><h3>'+persons[i].goodsName+'</h3><span>￥'+persons[i].goodsPrice+'</span><p class="clear"><span>'+persons[i].goodsDesc+'</span><span>'+persons[i].beiyong2+'</span></p></a></li>');
 }
 }});
+$("#goodlist-main-ul").delegate("li","click",function(){
+
+	saveCookie("goodsId",$(this).attr("id"),1);
+})
 
 });		
 

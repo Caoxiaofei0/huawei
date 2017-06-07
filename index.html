@@ -88,7 +88,7 @@
 					<div class="header-r-c">
 						<a class="shopCar" href="shoppingCar.html">
 							<img src="img/t3.jpg">
-							<p>0</p>
+							<p id="addshoppingcar-p">0</p>
 							<div class="hide-shopCar">
 								<img class="car" src="img/t19.jpg"/><br/>
 								<span class="carP">您的购物车是空的，赶紧选购吧</span>
@@ -112,7 +112,7 @@
 				<span>全部商品</span>
 				<b>
 					<a href="#">首页</a>
-					<a href="goodlist.html">华为专区</a>
+					<a href="prefecture.html">华为专区</a>
 					<a href="goodlist.html">荣耀专区</a>
 					<a href="goodlist.html">HUAWEI P10</a>
 					<a href="goodlist.html">荣耀V9</a>
@@ -749,7 +749,8 @@
 				btnWidth:10,
 				btnHeight:10,
 				btnHasOrd:true
-		});						
+		});
+		$("#addshoppingcar-p").html(getCookie("pzhi"));
 	}
 	s();
 	if(getCookie("name")!=""){
@@ -769,6 +770,7 @@
 			$("#register-enroll-p-1").css({"display":"none"});
 			removeCookie("name");
 		});
+		
 	});
 		
 	

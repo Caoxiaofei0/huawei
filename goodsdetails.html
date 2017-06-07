@@ -11,7 +11,7 @@
 			<div class="margin clear">
 				<ul class="top-l clear">
 					<li>
-						<a href="#">华为官网</a>
+						<a href="index.html">华为官网</a>
 						<span>|</span>
 					</li>
 					<li>
@@ -61,7 +61,7 @@
 		<header>
 			<div class="margin clear">
 				<div class="header-l">
-					<a href="#">
+					<a href="index.html">
 						<img src="img/logo.jpg"/>							
 					</a>
 				</div>
@@ -78,7 +78,7 @@
 					<div class="header-r-c">
 						<a class="shopCar" href="shoppingCar.html">
 							<img src="img/t3.jpg">
-							<p>0</p>
+							<p id="addshoppingcar-p">0</p>
 							<div class="hide-shopCar">
 								<img class="car" src="img/t19.jpg"/><br/>
 								<span class="carP">您的购物车是空的，赶紧选购吧</span>
@@ -105,7 +105,7 @@
 						<ul class="goodsdetails-ulId">
 							<li>
 								<h3>
-									<a href="#">手机</a>								
+									<a href="goodlist.html">手机</a>								
 								</h3>
 								<p>
 									<a href="#">荣耀</a>
@@ -181,7 +181,7 @@
 						</ul>
 					</dt>				
 					<dd>
-						<a href="#">首页</a>
+						<a href="index.html">首页</a>
 						<a href="goodlist.html">华为专区</a>
 						<a href="goodlist.html">荣耀专区</a>
 						<a href="goodlist.html">HUAWEI P10</a>
@@ -202,53 +202,63 @@
 							<div id="mirror"></div>
 						</div>
 						<div id="boxBig">
-							<img id="goodsdetails-main-c-l-da02" src="img/goodsdetails-img/428_428_1477529981662mp.jpg"/>			
+							<img  id="goodsdetails-main-c-l-da02" src="img/goodsdetails-img/428_428_1477529981662mp.jpg"/>			
 						</div>			
-						<p>
-							<a class="goodsdetails-main-c-l-a" href=""><img src="img/goodsdetails-img/55_55_1467859439969.jpg"/></a>
-							<a class="goodsdetails-main-c-l-a" href=""><img src="img/goodsdetails-img/55_55_1467859442793.jpg"/></a>
-							<a class="goodsdetails-main-c-l-a" href=""><img src="img/goodsdetails-img/55_55_1467859445524.jpg"/></a>
-							<a class="goodsdetails-main-c-l-a" href=""><img src="img/goodsdetails-img/55_55_1467859448233.jpg"/></a>
-							<a class="goodsdetails-main-c-l-a" href=""><img src="img/goodsdetails-img/55_55_1467859448233.jpg"/></a>
-							<a class="goodsdetails-main-c-l-a" href=""><img src="img/goodsdetails-img/55_55_1467859456470.jpg"/></a>
+						<p id="goodsdetails-main-p">
+							<a class="goodsdetails-main-c-l-a" href="#"><img src="img/goodsdetails-img/55_55_1467859439969.jpg"/></a>
+							<a class="goodsdetails-main-c-l-a" href="#"><img src="img/goodsdetails-img/55_55_1467859442793.jpg"/></a>
+							<a class="goodsdetails-main-c-l-a" href="#"><img src="img/goodsdetails-img/55_55_1467859445524.jpg"/></a>
+							<a class="goodsdetails-main-c-l-a" href="#"><img src="img/goodsdetails-img/55_55_1467859448233.jpg"/></a>
+							<a class="goodsdetails-main-c-l-a" href="#"><img src="img/goodsdetails-img/55_55_1467859448233.jpg"/></a>
+							<a class="goodsdetails-main-c-l-a" href="#"><img src="img/goodsdetails-img/55_55_1467859456470.jpg"/></a>
 						</p>
 					</div>
 					<div class="goodsdetails-main-c-r">
-						<h4>HUAWEI nova 2 系列</h4>
-						<ul>
-							<li>华为 价：<span></span></li>
+						<h4 id="goodsdetails-main-h4">HUAWEI nova 2 系列</h4>
+						<ul id="goodsdetails-main-ul">
+							<li>华为价格：<span></span></li>
 							<li>优惠信息：<span></span></li>
 							<li>商品编号：<span></span></li>
 							<li>商品评分：<span></span></li>
-							<li>运&nbsp;&nbsp;费：<span></span></li>
+							<li>运&nbsp;&nbsp;费：<span>90</span></li>
 							<li>服&nbsp;&nbsp;务：<span>由华为商城负责发货，并提供售货服务</span></li>
 							<li>支&nbsp;&nbsp;持：<span></span></li>														
-							<li>购买数量：<input type="button" value="-"/><span>0</span><input type="button" value="+"/></li>
+							<li>购买数量：<input id="goodsdetails-main-ul--" type="button" value="-"/><span id="goodsdetails-main-ul-spanzhi">0</span><input  id="goodsdetails-main-ul-+" type="button" value="+"/></li>
 						</ul>
-						<p>您选择了<span></span></p>
-						<input type="button" value="到货通知"/>
+						<p>您选择了:<span id="goodlist-main-p-01" style="color: #7B0000;"></span></p>
+						<input id="addshoppingcar" type="button" value="加入购物车"/>
 					</div>
 				</div>
 				<div class="clear goodsdetails-main-b">
 					<div class="goodsdetails-main-b-l">
 						<h5>最近浏览</h5>
-						<div></div>
+						<div>
+							<a  id="goodsdetails-main-b-l-a" href="#" style="color: #7B0000;">
+								<img id="goodsdetails-main-b-l-img" src="img/428_428_1494831986621mp.jpg" />
+								$<span id="goodsdetails-main-b-l-span"></span>
+							</a>
+						</div>
 					</div>
-					<div class="goodsdetails-main-b-r">
-						<div class="wrap">
-						  <ul id="tab_t">
-						    <li class="act" onclick="xuanze(1)">选择1</li>
-						    <li onclick="xuanze(2)">选择2</li>
-						    <li onclick="xuanze(3)">选择3</li>
-						    <li onclick="xuanze(4)">选择4</li>
-						  </ul>
-						  <div class="tab_c">
-						    <div class="hide"><img src="img/goodsdetails-img/gd1.jpg"/></div>
-						    <div class="hide"></div>
-						    <div class="hide">内容3</div>
-						    <div class="hide">内容4</div>
-						  </div>
-						</div>  
+					<div class="goodsdetails-main-b-r clear">
+					  	<ul id="tab_t" class="clear">
+						  	<li style="background: #7B0000;">
+						    	选择1<div><img src="img/goodsdetails-img/gd1.jpg"/></div>  
+						    </li>
+						    <li>
+						    	选择2<div class="hide">
+						    	<p>华为价格</p>
+						    	<p>华为价格</p>
+						    	<p>华为价格</p>
+						    	<p>华为价格</p>
+						    </div>
+						    </li>
+						    <li>
+						    	选择3<div class="hide">内容3</div>
+						    </li>
+						    <li>
+						    	选择4<div class="hide">内容4</div>
+						    </li>
+					  	</ul>												
 					</div>
 				</div>
 			</div>
@@ -379,46 +389,83 @@ $(function(){
 		$("#boxBig").css("display","none");		
 	})
 	createMirror("boxSmall","goodsdetails-main-c-l-da01","mirror","boxBig","goodsdetails-main-c-l-da02",0,0,428,428,100, 50,5)
-	$(".goodsdetails-main-c-l-a").eq(0).mouseover(function(){
-		$("#goodsdetails-main-c-l-da01").attr("src","img/goodsdetails-img/428_428_1477530844863.jpg")
-		$("#goodsdetails-main-c-l-da02").attr("src","img/goodsdetails-img/428_428_1477530844863.jpg")
-	})
-	$(".goodsdetails-main-c-l-a").eq(1).mouseover(function(){
-		$("#goodsdetails-main-c-l-da01").attr("src","img/goodsdetails-img/428_428_1477530845901.jpg")
-		$("#goodsdetails-main-c-l-da02").attr("src","img/goodsdetails-img/428_428_1477530845901.jpg")
-	})
-	$(".goodsdetails-main-c-l-a").eq(2).mouseover(function(){
-		$("#goodsdetails-main-c-l-da01").attr("src","img/goodsdetails-img/428_428_1477530848114.jpg")
-		$("#goodsdetails-main-c-l-da02").attr("src","img/goodsdetails-img/428_428_1477530848114.jpg")
-	})
-	$(".goodsdetails-main-c-l-a").eq(3).mouseover(function(){
-		$("#goodsdetails-main-c-l-da01").attr("src","img/goodsdetails-img/428_428_1477530848114.jpg")
-		$("#goodsdetails-main-c-l-da02").attr("src","img/goodsdetails-img/428_428_1477530848114.jpg")
-	})
-	$(".goodsdetails-main-c-l-a").eq(4).mouseover(function(){
-		$("#goodsdetails-main-c-l-da01").attr("src","img/goodsdetails-img/428_428_1477530844863.jpg")
-		$("#goodsdetails-main-c-l-da02").attr("src","img/goodsdetails-img/428_428_1477530844863.jpg")
-	})
-	$(".goodsdetails-main-c-l-a").eq(5).mouseover(function(){
-		$("#goodsdetails-main-c-l-da01").attr("src","img/goodsdetails-img/428_428_1477530851313.jpg")
-		$("#goodsdetails-main-c-l-da02").attr("src","img/goodsdetails-img/428_428_1477530851313.jpg")
-	})	
-	
+		
 })
-function xuanze(data){
-		var liaar=document.getElementsByTagName("li");//取得所有li元素，也就是取得所有选项卡
-		for(var i=0;i<liaar.length;i++){//遍历所有li元素
-			liaar[i].className="";//把所有选项卡样式清除
-		}
-		liaar[data-1].className="act";//设置序号对应的选项卡样式为act样式
-		var tab_c=document.getElementById("tab_c");//取得包含所有内容层的DIV
-		var arrdiv=[];
-		for(var i in tab_c.childNodes){//循环tab_c的所有子元素
-			if(tab_c.childNodes[i].nodeType==1){//判断子元素是否是元素节点，判断是否是内容层
-				tab_c.childNodes[i].className="hide";//设置所有子元素节点样式为隐藏
-				arrdiv.push(tab_c.childNodes[i]);//将所有元素节点放置到一个数组中
-			}
-		}
-		arrdiv[data-1].className="";//设置对应的内容层样式为空，实现对应层显示效果
+	$("#goodsdetails-main-p").delegate("a","mouseover",function(){
+		var str=$(this).children().attr("src");
+		$("#goodsdetails-main-c-l-da01").attr("src",str);
+		$("#goodsdetails-main-c-l-da02").attr("src",str);
+	});
+</script>
+<script>
+	$(function(){
+		if(getCookie("name")!=""){
+		$("#register-enroll").css({"display":"none"});
+		$("#register-enroll-p").css({"display":"block","float": "left"});
+		$("#register-enroll-span").html(getCookie("name"));
+		$("#register-enroll-div").css({"display":"none"});
+		$("#register-enroll-p-1").css({"display":"block"});
+		$("#register-enroll-span-1").html(getCookie("name"));		
 	}
+	$("#register-enroll-span").click(function(){
+		$("#zhuxiaoSpan").css({"display":"block","right":"-50px","top":"5px"});
+		$("#zhuxiaoSpan").click(function(){
+			$("#register-enroll").css({"display":"block"});
+			$("#register-enroll-p").css({"display":"none"});
+			$("#register-enroll-div").css({"display":"block"});
+			$("#register-enroll-p-1").css({"display":"none"});
+			removeCookie("name");
+		});
+	})
+	$.get("houtai/getGoodsInfo.php", {goodsId:getCookie("goodsId")},function(data){
+		var data=eval('('+data+')');
+    	$("#goodsdetails-main-h4").html(data.goodsName);
+    	$("#goodlist-main-p-01").html(data.goodsName);    	
+    	$("#goodsdetails-main-ul span").eq(0).html(data.goodsPrice);
+    	$("#goodsdetails-main-ul span").eq(1).html(data.beiyong1);
+    	$("#goodsdetails-main-ul span").eq(2).html(data.goodsId);
+    	$("#goodsdetails-main-ul span").eq(3).html(data.beiyong2);   	
+    	$("#goodsdetails-main-ul span").eq(6).html(data.beiyong3);
+    	$("#goodsdetails-main-c-l-da01").attr("src",data.beiyong4);
+    	$("#goodsdetails-main-c-l-da02").attr("src",data.beiyong4);
+    	$("#goodsdetails-main-p img").eq(0).attr("src",data.beiyong4);
+    	$("#goodsdetails-main-p img").eq(1).attr("src",data.beiyong5);
+    	$("#goodsdetails-main-p img").eq(2).attr("src",data.beiyong6);
+    	$("#goodsdetails-main-p img").eq(3).attr("src",data.beiyong7);
+    	$("#goodsdetails-main-p img").eq(4).attr("src",data.beiyong8);
+    	$("#goodsdetails-main-p img").eq(5).attr("src",data.beiyong9);
+    	$("#goodsdetails-main-b-l-a").css("font","40px/100px ''");
+    	$("#goodsdetails-main-b-l-span").html(data.goodsPrice);
+    	$("#goodsdetails-main-b-l-img").attr(data.beiyong4);    	
+    	
+	});	
+	})
+	$my("goodsdetails-main-ul--").onclick=function(){
+		var spanzhi=$("#goodsdetails-main-ul-spanzhi").html();
+		if(spanzhi>0){
+			spanzhi=parseInt(spanzhi)-1;
+			$("#goodsdetails-main-ul-spanzhi").html(spanzhi);
+		}		
+	}
+	$my("goodsdetails-main-ul-+").onclick=function(){
+		var spanzhi=$("#goodsdetails-main-ul-spanzhi").html();		
+			spanzhi=parseInt(spanzhi)+1;
+			$("#goodsdetails-main-ul-spanzhi").html(spanzhi);				
+	}
+	$("#tab_t").delegate("li","click",function(){
+		$(this).css("background","#7B0000");
+		$(this).children().css("display","block")
+		$(this).siblings().css("background","#f5f5f5");
+		$(this).siblings().children().css("display","none");
+	})
+	$("#addshoppingcar").click(function(){
+		
+		$.get("houtai/addShoppingCart.php", {goodsId:getCookie("goodsId"),vipName:getCookie("name"),goodsCount:$("#goodsdetails-main-ul-spanzhi").html()},function(data){
+		var data=data;	
+		console.log(data);
+		alert("加入购物车！")		
+		$("#addshoppingcar-p").html(getCookie("pzhi"));		
+	});	
+	})
+	
 </script>

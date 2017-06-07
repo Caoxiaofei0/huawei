@@ -13,7 +13,7 @@
 			<div class="margin clear">
 				<ul class="top-l clear">
 					<li>
-						<a href="#">华为官网</a>
+						<a href="index.html">华为官网</a>
 						<span>|</span>
 					</li>
 					<li>
@@ -39,10 +39,9 @@
 						<span>|</span>
 						<a href="#">V码（优购码）</a>
 					</li>
-				</ul>			
-				<dl class="top-r">					
-					<p style="position: relative;" id="register-enroll-p"><a href="#" style="color: #FF0000;font-weight: 700;" id="register-enroll-span"></a></p>
-
+				</ul>
+				<p style="position: relative;display: inline;margin-left: 440px;" id="register-enroll-p"><a href="#" style="color: #FF0000;font-weight: 700;" id="register-enroll-span"></a></p>
+				<dl class="top-r">										
 					<dt>
 						<a class="a2"  href="#">手机版</a>
 						<ul>
@@ -80,38 +79,28 @@
 		</header>
 		<div id="shopping-main">
 			<div class="shopping margin">
-				<ul class="shopping-top">
-					<li><input type="checkbox" /><span>全选</span></li>
-					<li><span>商品</span></li>
-					<li><span>单价(元)</span></li>
-					<li><span>数量</span></li>
-					<li><span>小计</span></li>
-					<li><span>操作</span></li>
-				</ul>
-				<ul class="chek1">
-					<li><input type="checkbox" checked="checked"/><a href="#"><img src="img/s-2.jpg"/></a></li>
-					<li><b id="mingcheng1">MOOKA彩电U55A5</b></li>
-					<li id="danjia1">3599</li>
-					<li>
-						<input id="btn1" type="button" value="-" />
-						<input id="input1" type="text" value="0"/>
-						<input id="btn2" type="button" value="+" />
-					</li>
-					<li id="xiaoji1">¥0</li>
-					<li><span>删除</span></li>
-				</ul>
-				<ul class="chek2">
-					<li><input type="checkbox" checked="checked"/><a href="#"><img src="img/s-1.jpg"/></a></li>
-					<li><b id="mingcheng2">MOOKA彩电U55Q81</b></li>
-					<li id="danjia2">¥3499</li>
-					<li>
-						<input id="btn3" type="button" value="-" />
-						<input id="input2" type="text" />
-						<input id="btn4" type="button" value="+" />
-					</li>
-					<li id="xiaoji2">¥0</li>
-					<li><span>删除</span></li>
-				</ul>
+				<div id="shopping-main-div-00">
+					<ul class="shopping-top">
+						<li></li>
+						<li><span>商品</span></li>
+						<li><span>单价(元)</span></li>
+						<li><span>数量</span></li>
+						<li><span>小计</span></li>
+						<li><span>操作</span></li>
+					</ul>
+					<ul class="chek1">
+						<li><a href="#"><img src="img/428_428_1480922774554mp.jpg"/></a></li>
+						<li><b id="mingcheng1">HUAWEI nova 2</b></li>
+						<li id="danjia1">$3599</li>
+						<li>
+							<input class="btn1" type="button" value="-" />
+							<input class="input1" type="text" value="0"/>
+							<input class="btn2" type="button" value="+" />
+						</li>
+						<li id="xiaoji1">¥0</li>
+						<li><span>删除</span></li>
+					</ul>
+				</div>
 				<div class="jiesuan">
 					<div class="total">
 						<span>订单总计:</span>
@@ -184,7 +173,7 @@
 							<dt>友情链接<a id="dta01" onclick="fun2()" class="dta01" >&lt;</a><a id="dta02" onclick="fun1()" class="dta02">&gt;</a></dt>							
 							<dd id="dd01" class="dd01">
 								<ul class="ul01">
-									<li><a href="#">华为官网</a></li>
+									<li><a href="index.html">华为官网</a></li>
 									<li><a href="#">华为消费业务</a></li>
 									<li><a href="#">荣耀官网</a></li>
 									<li><a href="#">花粉俱乐部</a></li>
@@ -235,6 +224,28 @@
 <script type="text/javascript" src="js/cookieTools1702.js"></script>
 <script>
 	$(function(){
-		$("#register-enroll-span").html(getCookie("name"));		
-	})	
+		
+		$("#register-enroll-span").html(getCookie("name"));
+		$.get("houtai/getShoppingCart.php", {vipName:getCookie("name")},function(data){
+		var data=eval('('+data+')');
+		console.log(data);
+		for(var i=0;i<data.length;i++){
+			$("#shopping-main-div-00").append('<ul class="chek1"><li><a href="#"><img src="'+data[i].beiyong4+'"/></a></li><li><b id="mingcheng1">'+data[i].goodsName+'</b></li><li id="danjia1">$'+data[i].goodsPrice+'</li><li><input id="btn1" type="button" value="-" /><input id="input1" type="text" value="'+data[i].goodsCount+'"/><input id="btn2" type="button" value="+" /></li><li id="xiaoji1">¥'+parseInt(data[i].goodsPrice)*parseInt(data[i].goodsCount)+'</li><li><span>删除</span></li></ul>');}   	   	
+	});	
+	saveCookie("pzhi",$("#shopping-main-div-00").children().length-1,7);
+	$(".btn1").click=function(){
+		var spanzhi=$(".input1").val();
+		if(spanzhi>0){
+			spanzhi=parseInt(spanzhi)-1;
+			$(".input1").val(spanzhi);
+		}		
+	}
+	$(".btn2").click=function(){
+		var spanzhi=$(".input1").val();		
+			spanzhi=parseInt(spanzhi)+1;
+			$(".input1").val(spanzhi);	
+	}
+				
+	})
+	
 </script>
