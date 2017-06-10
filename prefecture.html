@@ -395,8 +395,7 @@
 			<h3><a href="#"><span>意见反馈</span></a></h3>
 			<h3><a href="#"><span>帮助中心</span></a></h3>
 		</div>
-		<div id="prefecture-banner">
-			<img style="width: 1343px;" src="img/20170601090637333.jpg"/>
+		<div id="prefecture-banner" style="background: url(img/20170601090637333.jpg) no-repeat -500px 0px;width: 100%;height: 450px;">			
 		</div>	
 		<div id="prefecture-main">
 			<div class="margin">
@@ -714,6 +713,11 @@
 <script type="text/javascript" src="js/cookieTools1702.js"></script>
 <script>
 	$(function(){
+		if(getCookie("pzhi")!=""){
+		$("#addshoppingcar-p").html(getCookie("pzhi"));		
+	}else{
+		$("#addshoppingcar-p").html("0");
+	}
 		if(getCookie("name")!=""){
 		$("#register-enroll").css({"display":"none"});
 		$("#register-enroll-p").css({"display":"block","float": "left"});
@@ -732,8 +736,8 @@
 			removeCookie("name");
 		});
 	})
-	$("#addshoppingcar-p").html(getCookie("pzhi"));
 	})
+	
 	
 </script>
 

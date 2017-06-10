@@ -750,8 +750,12 @@
 				btnHeight:10,
 				btnHasOrd:true
 		});
-		$("#addshoppingcar-p").html(getCookie("pzhi"));
 	}
+		if(getCookie("pzhi")!=""){
+		$("#addshoppingcar-p").html(getCookie("pzhi"));		
+	}else{
+		$("#addshoppingcar-p").html("0");
+	}			
 	s();
 	if(getCookie("name")!=""){
 		$("#register-enroll").css({"display":"none"});
@@ -760,6 +764,9 @@
 		$("#register-enroll-div").css({"display":"none"});
 		$("#register-enroll-p-1").css({"display":"block"});
 		$("#register-enroll-span-1").html(getCookie("name"));		
+	}else{
+		$("#addshoppingcar-p").html("0");
+		
 	}
 	$("#register-enroll-span").click(function(){
 		$("#zhuxiaoSpan").css({"display":"block","right":"-50px","top":"5px"});

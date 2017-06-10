@@ -223,7 +223,7 @@
 							<li>运&nbsp;&nbsp;费：<span>90</span></li>
 							<li>服&nbsp;&nbsp;务：<span>由华为商城负责发货，并提供售货服务</span></li>
 							<li>支&nbsp;&nbsp;持：<span></span></li>														
-							<li>购买数量：<input id="goodsdetails-main-ul--" type="button" value="-"/><span id="goodsdetails-main-ul-spanzhi">0</span><input  id="goodsdetails-main-ul-+" type="button" value="+"/></li>
+							<li>购买数量：<input id="goodsdetails-main-ul--" type="button" value="-"/><span id="goodsdetails-main-ul-spanzhi">1</span><input  id="goodsdetails-main-ul-+" type="button" value="+"/></li>
 						</ul>
 						<p>您选择了:<span id="goodlist-main-p-01" style="color: #7B0000;"></span></p>
 						<input id="addshoppingcar" type="button" value="加入购物车"/>
@@ -399,6 +399,11 @@ $(function(){
 </script>
 <script>
 	$(function(){
+		if(getCookie("pzhi")!=""){
+			$("#addshoppingcar-p").html(getCookie("pzhi"));
+		}else{
+			$("#addshoppingcar-p").html("0");
+		};				
 		if(getCookie("name")!=""){
 		$("#register-enroll").css({"display":"none"});
 		$("#register-enroll-p").css({"display":"block","float": "left"});
@@ -442,7 +447,7 @@ $(function(){
 	})
 	$my("goodsdetails-main-ul--").onclick=function(){
 		var spanzhi=$("#goodsdetails-main-ul-spanzhi").html();
-		if(spanzhi>0){
+		if(spanzhi>1){
 			spanzhi=parseInt(spanzhi)-1;
 			$("#goodsdetails-main-ul-spanzhi").html(spanzhi);
 		}		
@@ -463,9 +468,8 @@ $(function(){
 		$.get("houtai/addShoppingCart.php", {goodsId:getCookie("goodsId"),vipName:getCookie("name"),goodsCount:$("#goodsdetails-main-ul-spanzhi").html()},function(data){
 		var data=data;	
 		console.log(data);
-		alert("加入购物车！")		
-		$("#addshoppingcar-p").html(getCookie("pzhi"));		
-	});	
-	})
-	
+		alert("加入购物车！")
+		saveCookie("goodsshuliang",$("#goodsdetails-main-ul-spanzhi").html(),7);		
+	})		
+	})	
 </script>

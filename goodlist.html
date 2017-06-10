@@ -572,6 +572,11 @@
 <script type="text/javascript" src="js/cookieTools1702.js"></script>
 <script>
 	$(function(){
+		if(getCookie("pzhi")!=""){
+		$("#addshoppingcar-p").html(getCookie("pzhi"));
+	}else{
+		$("#addshoppingcar-p").html("0");
+	};		
 		if(getCookie("name")!=""){
 		$("#register-enroll").css({"display":"none"});
 		$("#register-enroll-p").css({"display":"block","float": "left"});
@@ -590,8 +595,5 @@
 			removeCookie("name");
 		});
 	})
-	$("#addshoppingcar-p").html(getCookie("pzhi"));
-		})
-	
-	
+	})
 </script>

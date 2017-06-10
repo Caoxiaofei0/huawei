@@ -9,8 +9,7 @@ document.getElementById("enroll-inpId1").onblur=function(){
        if(str.length==0){
 			document.getElementById("sId1").innerHTML="";
 			document.getElementById("sId11").innerHTML="";			
-		}else if(reg.test(str)){
-			
+		}else if(reg.test(str)){			
 	      document.getElementById("sId1").innerHTML="√";		
 		  a=true;		  
 	   }else{
@@ -23,15 +22,24 @@ document.getElementById("enroll-inpId1").onblur=function(){
        var reg = /^[A-z]\w{7,31}$/;
        var str=document.getElementById("enroll-inpId2").value;
        if(str.length==0){
-			document.getElementById("sId2").innerHTML="";					
+			document.getElementById("sId2").innerHTML="";
+			document.getElementById("strength1").style.backgroundColor="#999999";
+		   	document.getElementById("strength2").style.backgroundColor="#999999";
+		   	document.getElementById("strength3").style.backgroundColor="#999999";
 		}else if(reg.test(str)){ 
 	        b=true;
-	        if(str.length<16){
-		   		document.getElementById("strength1").style.backgroundColor="red"	
+	        if(str.length<16&str.length>0){
+		   		document.getElementById("strength1").style.backgroundColor="red";
+		   		document.getElementById("strength2").style.backgroundColor="#999999";
+		   		document.getElementById("strength3").style.backgroundColor="#999999";
 		   }else if(str.length<24&str.length>16){	   		
-		   		document.getElementById("strength2").style.backgroundColor="red"
+		   		document.getElementById("strength2").style.backgroundColor="red";
+		   		document.getElementById("strength3").style.backgroundColor="#999999";
+		   		document.getElementById("strength1").style.backgroundColor="#999999";		   		   		
 		   }else{
-		   		document.getElementById("strength3").style.backgroundColor="red"
+		   		document.getElementById("strength3").style.backgroundColor="red";
+		   		document.getElementById("strength1").style.backgroundColor="#999999";
+		   		document.getElementById("strength2").style.backgroundColor="#999999";
 		   }
 		      document.getElementById("sId2").innerHTML="√";
 		   }else{
@@ -43,7 +51,7 @@ document.getElementById("enroll-inpId1").onblur=function(){
        var str=document.getElementById("enroll-inpId3").value;
        if(str.length==0){
 			document.getElementById("sId3").innerHTML="";			
-		}else if(str=document.getElementById("enroll-inpId2").value){ 
+		}else if(str==document.getElementById("enroll-inpId2").value){ 
 	        b=true;	   
 		      document.getElementById("sId3").innerHTML="√";
 		   }else{
